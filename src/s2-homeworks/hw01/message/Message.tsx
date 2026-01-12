@@ -8,6 +8,7 @@ export type MessagePropsType = {
 }
 
 // нужно отобразить приходящие данные
+
 const Message = (props: MessagePropsType) => {
     return (
         <div id={'hw1-message-' + props.message.id} className={s.message}>
