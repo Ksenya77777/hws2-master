@@ -1,3 +1,31 @@
 .loader {
-    /*свг и/или анимация*/
+    width: 108px;
+    height: 108px;
+    box-sizing: border-box;
+    border-radius: 50%;
+    background: conic-gradient(
+        from 0deg,
+        #0066cc 0deg,
+        rgba(0, 102, 204, 0.55) 100deg,
+        rgba(102, 179, 255, 0.2) 200deg,
+        rgba(0, 102, 204, 0) 280deg,
+        #0066cc 360deg
+    );
+    -webkit-mask: radial-gradient(
+        farthest-side,
+        transparent calc(100% - 14px),
+        #000 calc(100% - 13px)
+    );
+    mask: radial-gradient(
+        farthest-side,
+        transparent calc(100% - 14px),
+        #000 calc(100% - 13px)
+    );
+    animation: loaderSpin 0.9s linear infinite;
+}
+
+@keyframes loaderSpin {
+    to {
+        transform: rotate(360deg);
+    }
 }
