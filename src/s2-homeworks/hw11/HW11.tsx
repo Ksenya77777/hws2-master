@@ -15,8 +15,17 @@ function HW11() {
     const [value1, setValue1] = useState(restoreState<number>('hw11-value1', 0))
     const [value2, setValue2] = useState(restoreState<number>('hw11-value2', 100))
 
-    const change = (event: any, value: any) => {
-        // пишет студент // если пришёл массив - сохранить значения в оба useState, иначе в первый
+    const change = (_event: Event | React.SyntheticEvent, newValue: number | number[]) => {
+        // MUI Slider:
+        // - single slider => number
+        // - range slider  => number[]
+        if (Array.isArray(newValue)) {
+            const [v1, v2] = newValue
+            setValue1(v1)
+            setValue2(v2)
+        } else {
+            setValue1(newValue)
+        }
     }
 
     return (
@@ -29,16 +38,22 @@ function HW11() {
                         <span id={'hw11-value'} className={s.number}>{value1}</span>
                         <SuperRange
                             id={'hw11-single-slider'}
-                            // сделать так чтоб value1 изменялось // пишет студент
-
+                            value={value1}
+                            min={0}
+                            max={100}
+                            step={1}
+                            onChange={change}
                         />
                     </div>
                     <div className={s.wrapper}>
                         <span id={'hw11-value-1'} className={s.number}>{value1}</span>
                         <SuperRange
                             id={'hw11-double-slider'}
-                            // сделать так чтоб value1/2 изменялось // пишет студент
-
+                            value={[value1, value2]}
+                            min={0}
+                            max={100}
+                            step={1}
+                            onChange={change}
                         />
                         <span id={'hw11-value-2'} className={s.number}>{value2}</span>
                     </div>
