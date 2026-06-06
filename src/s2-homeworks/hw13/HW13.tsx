@@ -58,7 +58,7 @@ const HW13 = () => {
                 } else if (e.response?.status === 500) {
                     setCode('Ошибка 500!')
                     setImage(error500)
-                    setText('имитация ошибки на сервере')
+                    setText('эмитация ошибки на сервере')
                     setInfo('ошибка 500 - обычно означает что что-то сломалось на сервере, например база данных')
                 } else {
                     setCode('Error!')
